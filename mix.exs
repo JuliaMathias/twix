@@ -34,6 +34,7 @@ defmodule Twix.MixProject do
     [
       {:absinthe, "~> 1.7"},
       {:absinthe_plug, "~> 1.5"},
+      {:crudry, "~> 2.4.0"},
       {:ecto_sql, "~> 3.10"},
       {:jason, "~> 1.2"},
       {:phoenix, "~> 1.7.6"},
