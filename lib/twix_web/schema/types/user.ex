@@ -6,6 +6,7 @@ defmodule TwixWeb.Schema.Types.User do
     field :nickname, non_null(:string)
     field :email, non_null(:string)
     field :age, non_null(:integer)
+    field :posts, list_of(:post)
   end
 
   input_object :create_user_input do
