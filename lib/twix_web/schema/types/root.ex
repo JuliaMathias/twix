@@ -22,6 +22,11 @@ defmodule TwixWeb.Schema.Types.Root do
   end
 
   object :root_mutation do
+    field :add_like_to_post, :post do
+      arg :id, non_null(:id)
+      resolve &PostResolver.add_like/2
+    end
+
     field :create_user, :user do
       arg :input, non_null(:create_user_input)
       resolve &UserResolver.create/2
