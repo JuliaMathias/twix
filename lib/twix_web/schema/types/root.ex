@@ -29,6 +29,13 @@ defmodule TwixWeb.Schema.Types.Root do
       middleware TranslateErrors
     end
 
+    field :create_post, :post do
+      arg :input, non_null(:create_post_input)
+      resolve &PostResolver.create/2
+
+      middleware TranslateErrors
+    end
+
     field :update_user, :user do
       arg :input, non_null(:update_user_input)
       resolve &UserResolver.update/2
