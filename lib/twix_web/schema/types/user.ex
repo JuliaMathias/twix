@@ -1,11 +1,12 @@
 defmodule TwixWeb.Schema.Types.User do
   use Absinthe.Schema.Notation
 
+  @desc "A user of the application."
   object :user do
     field :id, non_null(:id)
     field :nickname, non_null(:string)
     field :email, non_null(:string)
-    field :age, non_null(:integer)
+    field :age, non_null(:integer), description: "Needs to be 18 or older."
     field :posts, list_of(:post)
   end
 
