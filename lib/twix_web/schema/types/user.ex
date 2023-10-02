@@ -8,6 +8,18 @@ defmodule TwixWeb.Schema.Types.User do
     field :email, non_null(:string)
     field :age, non_null(:integer), description: "Needs to be 18 or older."
     field :posts, list_of(:post)
+    field :followers, list_of(:follower)
+    field :followings, list_of(:following)
+  end
+
+  object :follower do
+    field :follower_id, non_null(:id)
+    field :follower, non_null(:user)
+  end
+
+  object :following do
+    field :following_id, non_null(:id)
+    field :following, non_null(:user)
   end
 
   input_object :create_user_input do
