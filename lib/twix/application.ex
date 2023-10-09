@@ -15,7 +15,8 @@ defmodule Twix.Application do
       # Start the PubSub system
       {Phoenix.PubSub, name: Twix.PubSub},
       # Start the Endpoint (http/https)
-      TwixWeb.Endpoint
+      TwixWeb.Endpoint,
+      {Absinthe.Subscription, TwixWeb.Endpoint}
       # Start a worker by calling: Twix.Worker.start_link(arg)
       # {Twix.Worker, arg}
     ]
