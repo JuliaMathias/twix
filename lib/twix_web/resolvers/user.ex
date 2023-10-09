@@ -1,9 +1,9 @@
 defmodule TwixWeb.Resolvers.User do
   def add_follower(%{input: %{user_id: user_id, follower_id: follower_id}}, _context) do
-    result = Twix.add_follower(user_id, follower_id)
-    Absinthe.Subscription.publish(TwixWeb.Endpoint, result, new_follow: "new_follow_topic")
-
-    result
+    with {:ok, result} <- Twix.add_follower(user_id, follower_id) do
+      Absinthe.Subscription.publish(TwixWeb.Endpoint, result, new_follow: "new_follow_topic")
+      {:ok, result}
+    end
   end
 
   def get(%{id: id}, _context), do: Twix.get_user(id)
