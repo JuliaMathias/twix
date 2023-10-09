@@ -27,6 +27,13 @@ defmodule TwixWeb.Schema.Types.Root do
       resolve &PostResolver.add_like/2
     end
 
+    field :add_follower, :add_follower_response do
+      arg :input, non_null(:add_follower_input)
+      resolve &UserResolver.add_follower/2
+
+      middleware TranslateErrors
+    end
+
     field :create_user, :user do
       arg :input, non_null(:create_user_input)
       resolve &UserResolver.create/2

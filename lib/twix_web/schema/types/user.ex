@@ -22,6 +22,16 @@ defmodule TwixWeb.Schema.Types.User do
     field :following, non_null(:user)
   end
 
+  object :add_follower_response do
+    field :follower_id, non_null(:id)
+    field :following_id, non_null(:id)
+  end
+
+  input_object :add_follower_input do
+    field :user_id, non_null(:id)
+    field :follower_id, non_null(:id)
+  end
+
   input_object :create_user_input do
     field :nickname, non_null(:string)
     field :email, non_null(:string)
