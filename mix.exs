@@ -33,6 +33,7 @@ defmodule Twix.MixProject do
   defp deps do
     [
       {:absinthe, "~> 1.7"},
+      {:absinthe_phoenix, "~> 2.0"},
       {:absinthe_plug, "~> 1.5"},
       {:crudry, "~> 2.4.0"},
       {:ecto_sql, "~> 3.10"},
